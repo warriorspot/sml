@@ -31,7 +31,7 @@ X = [ones(m, 1) X];
 %       
 
 
-
+p = ifelse(sigmoid(X * all_theta) >= 0.5, 1, 0);
 
 
 
