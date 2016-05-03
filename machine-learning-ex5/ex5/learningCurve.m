@@ -52,9 +52,12 @@ error_val   = zeros(m, 1);
 %
 
 % ---------------------- Sample Solution ----------------------
+X
+y
 
-
-
+for i = 1:m
+   error_train(i) = sum(X(1:i,:) - y(1:i))^2 / 2 * m; 
+end
 
 
 
