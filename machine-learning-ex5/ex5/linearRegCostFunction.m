@@ -25,19 +25,12 @@ s = sum( (h - y).^2 );
 J = s / (2 * m);
 J = J + ( (lambda/(2*m)) .* sum(theta(2:length(theta)).^2) );
 
-grad(1,:) = (sum((h - y) .* X(:,1)) ./ m);
-grad(2,:) = (sum((h - y) .* X(:,2)) ./ m) + ((lambda/m) .* theta(2,:));
+temp = theta;                                                                                       
+temp(1) = 0; 
+reg = ((lambda/m) .* temp);
+grad = (sum((h - y) .* X) ./ m) + reg';
 	
 
-
-
-
-
-
-
-
 % =========================================================================
-
 grad = grad(:);
-
 end
