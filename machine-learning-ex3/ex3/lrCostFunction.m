@@ -41,7 +41,7 @@ J = sum(-y .* log(sigmoid(h)) - (1 - y) .* log(1 - sigmoid(h))) ./ m;
 temp = theta;
 temp(1) = 0;
 grad = sum((sigmoid(h) - y) .* X) ./ m;
-grad = grad + (lambda / (2 * m) .* sum(temp.^2));
+grad = grad + (lambda / (2 * m) * sum(temp.^2));
 
 % =============================================================
 
