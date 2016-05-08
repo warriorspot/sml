@@ -33,7 +33,7 @@ for i = 1:length(X)
 	idx(i) = ix;
 end
 
-
+idx;
 
 
 
