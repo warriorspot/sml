@@ -27,7 +27,7 @@ for i = 1:length(X)
 	p = X(i,:);
 	for z = 1:K;
 		c = centroids(z,:);
-		dist(z) = sqrt( (p(1) - c(1))^2 + (p(2) - c(2))^2 );
+		dist(z) = norm(p - c); 
 	end
 	[x, ix] = min(dist, [], 1);
 	idx(i) = ix;
