@@ -24,9 +24,26 @@ sigma = 0.3;
 %
 
 
+max = 8;
+tC = 0.01;
+tsigma = 0.01;
+minerror = -1;
 
-
-
+for i = 1:max
+	for z = 1:max
+		model = svmTrain(X, y, tC, @(x1, x2) gaussianKernel(x1, x2, tsigma));
+		predictions = svmPredict(model, Xval); 
+		error = mean(double(predictions ~= yval))
+		if(minerror == -1 || error < minerror)
+			minerror = error;
+			C = tC;
+			sigma = tsigma;
+		endif	
+		tsigma = tsigma * 3;
+	end
+	tsigma = 0.01;
+	tC = tC * 3;
+end
 
 
 % =========================================================================
